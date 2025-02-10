@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const FolderTree = ({ folders, onSelect }) => {
+const FolderTree = ({ folders, onFolderSelect }) => {
   const [openFolders, setOpenFolders] = useState({});
 
   const toggleFolder = (folderId) => {
@@ -8,6 +8,7 @@ const FolderTree = ({ folders, onSelect }) => {
       ...prev,
       [folderId]: !prev[folderId],
     }));
+    onFolderSelect(folderId); // Pass selected folder to Explorer
   };
 
   return (
@@ -16,15 +17,12 @@ const FolderTree = ({ folders, onSelect }) => {
         <li key={folder.id}>
           <div
             className="folder-item"
-            onClick={() => {
-              toggleFolder(folder.id);
-              onSelect(folder.id);
-            }}
+            onClick={() => toggleFolder(folder.id)}
           >
             📂 {folder.name}
           </div>
           {openFolders[folder.id] && folder.subfolders?.length > 0 && (
-            <FolderTree folders={folder.subfolders} onSelect={onSelect} />
+            <FolderTree folders={folder.subfolders} onFolderSelect={onFolderSelect} />
           )}
         </li>
       ))}

@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
-import { fetchFiles } from "../api";
+import { fetchFilesByFolder } from "../api"; // Correct API function
 
 function FileList({ selectedFolderId }) {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
     if (selectedFolderId) {
-      fetchFiles(selectedFolderId).then(setFiles).catch(console.error);
+      fetchFilesByFolder(selectedFolderId)
+        .then(setFiles)
+        .catch((err) => console.error("Error fetching files:", err));
     }
   }, [selectedFolderId]);
 
