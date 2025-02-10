@@ -2,9 +2,9 @@ import axios from "axios";
 
 const API_BASE_URL = "http://localhost:8080/api/folders";
 
-export const fetchRootFolders = async () => {
+export const fetchAllFolders = async () => {
   const response = await axios.get(API_BASE_URL);
-  return response.data; // Only root folders
+  return response.data;
 };
 
 export const fetchFolderDetails = async (folderId) => {
