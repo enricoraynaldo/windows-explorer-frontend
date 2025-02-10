@@ -29,14 +29,21 @@ body {
 
 ul {
   list-style-type: none;
-  padding-left: 20px;
+  padding-left: 0;
+}
+
+/* Ensure uniform spacing between folder items */
+ul.folder-list, ul.nested-folder {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0; /* Remove extra margin */
 }
 
 li {
-  padding: 8px;
+  padding: 5px; /* Adjust padding to ensure uniform spacing */
   cursor: pointer;
-  display: flex;
-  align-items: center;
+  display: block; /* Ensures li elements are block level */
+  margin: 0; /* Remove extra margin */
 }
 
 li:hover {
@@ -56,3 +63,90 @@ h3 {
   font-size: 16px;
   margin-top: 0;
 }
+
+.search-bar {
+  width: calc(100% - 30px);
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+}
+
+.search-bar:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.file-list {
+  list-style: none;
+  padding-left: 10px;
+}
+
+.file-list li {
+  display: flex;
+  align-items: center;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.file-list li:hover {
+  background-color: #eee;
+  border-radius: 4px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sidebar li {
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.empty-message {
+  text-align: center;
+  color: #888;
+  font-style: italic;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.root-folder {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.folder-item {
+  display: flex;
+  align-items: center
+}
+
+.nested-folder {
+  padding-left: 20px; /* Adjust indentation for subfolders */
+  margin: 0; /* Remove margin */
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.folder-header:hover {
+  background: #e0e0e0;
+  border-radius: 5px;
+}
+
+.folder-arrow {
+  margin-right: 5px;
+}
+
+.folder-list {
+  list-style: none;
+  padding-left: 15px;
+}
+
