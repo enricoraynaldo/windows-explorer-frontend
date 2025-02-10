@@ -1,0 +1,11 @@
+.file-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .file-item {
+    padding: 5px;
+    font-size: 14px;
+    color: #333;
+  }
+  
